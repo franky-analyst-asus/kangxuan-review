@@ -118,6 +118,7 @@ TEMPLATE = r'''<!doctype html>
     .item-list button { width:100%; min-height:50px; display:flex; align-items:center; justify-content:space-between; gap:8px; border:1px solid var(--line); border-radius:12px; background:white; color:var(--ink); padding:9px 11px; text-align:left; }
     .item-list button[aria-current="true"] { border-color:var(--green); background:var(--green-pale); }
     .item-list small { color:var(--muted); }
+    .item-list small.done { color:var(--green-dark); font-weight:800; }
     .empty { border:1px dashed var(--line); border-radius:14px; padding:20px; color:var(--muted); }
     .records { padding:22px; }
     .records h2 { margin:0 0 8px; }
@@ -244,6 +245,11 @@ TEMPLATE = r'''<!doctype html>
       renderList(); renderStage();
     }
     function selectSentence(index) { if (index < 0 || index >= state.queue.length) return; speakStop(); state.index = index; state.revealed = false; $('speechMessage').textContent = ''; resetHelper(); renderList(); renderStage(); }
+    function sentenceCompleted(item) {
+      if (!state.record.reviewed[item.id]) return false;
+      const weak = new Set(state.record.weakCharacters);
+      return sentenceCharacters(item).every(char => !weak.has(char));
+    }
     function renderList() {
       $('listTitle').textContent = state.mode === 'review' ? '加強練習句子' : '句子清單';
       $('listHint').textContent = '選擇一句開始聽寫';
@@ -254,7 +260,10 @@ TEMPLATE = r'''<!doctype html>
         const li = document.createElement('li'); const button = document.createElement('button');
         button.type = 'button'; button.setAttribute('aria-current', String(i === state.index));
         const title = document.createElement('span'); title.textContent = `第 ${i+1} 句`;
-        const meta = document.createElement('small'); meta.textContent = state.record.reviewed[item.id] ? '可再練習' : '開始聽寫';
+        const meta = document.createElement('small');
+        const completed = sentenceCompleted(item);
+        meta.textContent = completed ? '✓ 已完成' : state.record.reviewed[item.id] ? '可再練習' : '開始聽寫';
+        if (completed) meta.classList.add('done');
         button.append(title,meta); button.addEventListener('click', () => selectSentence(i)); li.append(button); list.append(li);
       });
     }
@@ -375,7 +384,7 @@ TEMPLATE = r'''<!doctype html>
     function toggleWeak(char) {
       const weak = new Set(state.record.weakCharacters); weak.has(char) ? weak.delete(char) : weak.add(char);
       state.record.weakCharacters = [...weak].sort((a,b) => a.localeCompare(b,'zh-Hant'));
-      saveRecord(); renderStage();
+      saveRecord(); renderStage(); renderList();
     }
     function reveal() {
       const item = state.queue[state.index]; if (!item || state.revealed) return;
@@ -478,7 +487,7 @@ TEMPLATE = r'''<!doctype html>
       $('aiSuggestionReview').hidden = true; $('aiSuggestionSentences').replaceChildren();
       state.aiSuggestion = null;
       renderRecords();
-      if (state.mode === 'review') resetQueue();
+      if (state.mode === 'review') resetQueue(); else renderList();
     }
     function exportRecord() {
       const blob = new Blob([JSON.stringify(state.record,null,2)],{type:'application/json'});

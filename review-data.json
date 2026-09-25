@@ -1,0 +1,1988 @@
+{
+  "schoolYear": 114,
+  "publisher": "康軒版",
+  "grade": 1,
+  "retrieved": "2026-09-25",
+  "lessons": [
+    {
+      "semester": 1,
+      "id": "0103011140101",
+      "title": "第一課：拍拍手",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140101",
+      "terms": [
+        "拍",
+        "手",
+        "左",
+        "右",
+        "你",
+        "他",
+        "也",
+        "上",
+        "下",
+        "拍手"
+      ],
+      "characters": [
+        "拍",
+        "手",
+        "左",
+        "右",
+        "你",
+        "他",
+        "也",
+        "上",
+        "下"
+      ],
+      "phrases": [
+        "拍手"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140101-1",
+          "text": "你拍手，他也拍手。",
+          "targets": [
+            "拍",
+            "手",
+            "你",
+            "他",
+            "也"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140101-2",
+          "text": "左手上，右手下。",
+          "targets": [
+            "手",
+            "左",
+            "右",
+            "上",
+            "下"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 1,
+      "id": "0103011140102",
+      "title": "第二課：這是誰的?",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140102",
+      "terms": [
+        "這",
+        "是",
+        "誰",
+        "的",
+        "我",
+        "分",
+        "好",
+        "了",
+        "啊",
+        "多",
+        "個",
+        "一個"
+      ],
+      "characters": [
+        "這",
+        "是",
+        "誰",
+        "的",
+        "我",
+        "分",
+        "好",
+        "了",
+        "啊",
+        "多",
+        "個"
+      ],
+      "phrases": [
+        "一個"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140102-1",
+          "text": "這是誰的？這是我的。",
+          "targets": [
+            "這",
+            "是",
+            "誰",
+            "的",
+            "我"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140102-2",
+          "text": "好多個啊！我分好了。",
+          "targets": [
+            "我",
+            "分",
+            "好",
+            "了",
+            "啊",
+            "多",
+            "個"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 1,
+      "id": "0103011140103",
+      "title": "第三課：秋千",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140103",
+      "terms": [
+        "秋",
+        "千",
+        "和",
+        "玩",
+        "陪",
+        "高",
+        "山",
+        "到",
+        "大",
+        "海",
+        "朋",
+        "友",
+        "們",
+        "起",
+        "秋千",
+        "高山",
+        "大海",
+        "我們",
+        "好朋友",
+        "一起"
+      ],
+      "characters": [
+        "秋",
+        "千",
+        "和",
+        "玩",
+        "陪",
+        "高",
+        "山",
+        "到",
+        "大",
+        "海",
+        "朋",
+        "友",
+        "們",
+        "起"
+      ],
+      "phrases": [
+        "秋千",
+        "高山",
+        "大海",
+        "我們",
+        "好朋友",
+        "一起"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140103-1",
+          "text": "我和朋友玩秋千。",
+          "targets": [
+            "秋",
+            "千",
+            "和",
+            "玩",
+            "朋",
+            "友"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140103-2",
+          "text": "你陪我上高山。",
+          "targets": [
+            "陪",
+            "高",
+            "山"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140103-3",
+          "text": "我們一起到大海玩。",
+          "targets": [
+            "玩",
+            "到",
+            "大",
+            "海",
+            "們",
+            "起"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 1,
+      "id": "0103011140104",
+      "title": "第四課：大個子，小個子",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140104",
+      "terms": [
+        "子",
+        "小",
+        "課",
+        "兩",
+        "人",
+        "拉",
+        "看",
+        "找",
+        "隻",
+        "青",
+        "蛙",
+        "開",
+        "心",
+        "個子",
+        "上課",
+        "青蛙",
+        "開心"
+      ],
+      "characters": [
+        "子",
+        "小",
+        "課",
+        "兩",
+        "人",
+        "拉",
+        "看",
+        "找",
+        "隻",
+        "青",
+        "蛙",
+        "開",
+        "心"
+      ],
+      "phrases": [
+        "個子",
+        "上課",
+        "青蛙",
+        "開心"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140104-1",
+          "text": "兩個人一起上課。",
+          "targets": [
+            "課",
+            "兩",
+            "人"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140104-2",
+          "text": "大個子和小個子手拉手。",
+          "targets": [
+            "子",
+            "小",
+            "拉"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140104-3",
+          "text": "我們找到兩隻青蛙了。",
+          "targets": [
+            "兩",
+            "找",
+            "隻",
+            "青",
+            "蛙"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140104-4",
+          "text": "看到你，我好開心。",
+          "targets": [
+            "看",
+            "開",
+            "心"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 1,
+      "id": "0103011140105",
+      "title": "第五課：比一比",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140105",
+      "terms": [
+        "比",
+        "門",
+        "裡",
+        "外",
+        "有",
+        "什",
+        "麼",
+        "不",
+        "同",
+        "早",
+        "晚",
+        "王",
+        "主",
+        "又",
+        "門外",
+        "什麼",
+        "不同",
+        "早上",
+        "晚上",
+        "王子",
+        "主人"
+      ],
+      "characters": [
+        "比",
+        "門",
+        "裡",
+        "外",
+        "有",
+        "什",
+        "麼",
+        "不",
+        "同",
+        "早",
+        "晚",
+        "王",
+        "主",
+        "又"
+      ],
+      "phrases": [
+        "門外",
+        "什麼",
+        "不同",
+        "早上",
+        "晚上",
+        "王子",
+        "主人"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140105-1",
+          "text": "比一比，門裡和門外有什麼不同？",
+          "targets": [
+            "比",
+            "門",
+            "裡",
+            "外",
+            "有",
+            "什",
+            "麼",
+            "不",
+            "同"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140105-2",
+          "text": "王子早上玩，晚上看海。",
+          "targets": [
+            "早",
+            "晚",
+            "王"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140105-3",
+          "text": "主人又開門了。",
+          "targets": [
+            "門",
+            "主",
+            "又"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 1,
+      "id": "0103011140106",
+      "title": "第六課：小路",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140106",
+      "terms": [
+        "路",
+        "長",
+        "白",
+        "花",
+        "紅",
+        "走",
+        "在",
+        "向",
+        "說",
+        "朵",
+        "從",
+        "頭",
+        "那",
+        "小路",
+        "白花",
+        "紅花",
+        "一頭"
+      ],
+      "characters": [
+        "路",
+        "長",
+        "白",
+        "花",
+        "紅",
+        "走",
+        "在",
+        "向",
+        "說",
+        "朵",
+        "從",
+        "頭",
+        "那"
+      ],
+      "phrases": [
+        "小路",
+        "白花",
+        "紅花",
+        "一頭"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140106-1",
+          "text": "白花和紅花開在長長的小路上。",
+          "targets": [
+            "路",
+            "長",
+            "白",
+            "花",
+            "紅",
+            "在"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140106-2",
+          "text": "我從門裡走到那頭。",
+          "targets": [
+            "走",
+            "從",
+            "頭",
+            "那"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140106-3",
+          "text": "他向我說：「這朵花好紅！」",
+          "targets": [
+            "花",
+            "紅",
+            "向",
+            "說",
+            "朵"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140201",
+      "title": "第一課：看",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140201",
+      "terms": [
+        "要",
+        "靜",
+        "天",
+        "空",
+        "雲",
+        "水",
+        "蟲",
+        "鳥",
+        "草",
+        "先",
+        "完",
+        "再",
+        "去",
+        "靜靜的",
+        "天空",
+        "白雲",
+        "花草"
+      ],
+      "characters": [
+        "要",
+        "靜",
+        "天",
+        "空",
+        "雲",
+        "水",
+        "蟲",
+        "鳥",
+        "草",
+        "先",
+        "完",
+        "再",
+        "去"
+      ],
+      "phrases": [
+        "靜靜的",
+        "天空",
+        "白雲",
+        "花草"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140201-1",
+          "text": "靜靜的天空有白雲。",
+          "targets": [
+            "靜",
+            "天",
+            "空",
+            "雲"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140201-2",
+          "text": "小鳥在草上找小蟲。",
+          "targets": [
+            "蟲",
+            "鳥",
+            "草"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140201-3",
+          "text": "我要先看完花草，再去玩水。",
+          "targets": [
+            "要",
+            "水",
+            "草",
+            "先",
+            "完",
+            "再",
+            "去"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140202",
+      "title": "第二課：花園裡有什麼？",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140202",
+      "terms": [
+        "園",
+        "聽",
+        "沒",
+        "正",
+        "唱",
+        "著",
+        "輕",
+        "快",
+        "歌",
+        "出",
+        "新",
+        "芽",
+        "聞",
+        "身",
+        "香",
+        "呢",
+        "花園",
+        "沒有",
+        "輕快",
+        "新芽",
+        "身上"
+      ],
+      "characters": [
+        "園",
+        "聽",
+        "沒",
+        "正",
+        "唱",
+        "著",
+        "輕",
+        "快",
+        "歌",
+        "出",
+        "新",
+        "芽",
+        "聞",
+        "身",
+        "香",
+        "呢"
+      ],
+      "phrases": [
+        "花園",
+        "沒有",
+        "輕快",
+        "新芽",
+        "身上"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140202-1",
+          "text": "花園裡有什麼呢？",
+          "targets": [
+            "園",
+            "呢"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140202-2",
+          "text": "聽，小鳥正唱著輕快的歌。",
+          "targets": [
+            "聽",
+            "正",
+            "唱",
+            "著",
+            "輕",
+            "快",
+            "歌"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140202-3",
+          "text": "小花長出新芽了。",
+          "targets": [
+            "出",
+            "新",
+            "芽"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140202-4",
+          "text": "我聞到花香，沒有看到花。",
+          "targets": [
+            "沒",
+            "聞",
+            "香"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140202-5",
+          "text": "他身上有一朵紅花。",
+          "targets": [
+            "身"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140203",
+      "title": "第三課：媽媽的音樂會",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140203",
+      "terms": [
+        "媽",
+        "音",
+        "樂",
+        "會",
+        "始",
+        "來",
+        "重",
+        "短",
+        "陣",
+        "過",
+        "後",
+        "吃",
+        "菜",
+        "就",
+        "桌",
+        "真",
+        "媽媽",
+        "音樂會",
+        "開始",
+        "一陣",
+        "過後",
+        "好吃",
+        "上桌"
+      ],
+      "characters": [
+        "媽",
+        "音",
+        "樂",
+        "會",
+        "始",
+        "來",
+        "重",
+        "短",
+        "陣",
+        "過",
+        "後",
+        "吃",
+        "菜",
+        "就",
+        "桌",
+        "真"
+      ],
+      "phrases": [
+        "媽媽",
+        "音樂會",
+        "開始",
+        "一陣",
+        "過後",
+        "好吃",
+        "上桌"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140203-1",
+          "text": "媽媽的音樂會開始了。",
+          "targets": [
+            "媽",
+            "音",
+            "樂",
+            "會",
+            "始"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140203-2",
+          "text": "媽媽唱了一陣，就來吃菜了。",
+          "targets": [
+            "媽",
+            "來",
+            "陣",
+            "吃",
+            "菜",
+            "就"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140203-3",
+          "text": "桌上的菜真好吃。",
+          "targets": [
+            "吃",
+            "菜",
+            "桌",
+            "真"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140203-4",
+          "text": "我吃完菜，就去找媽媽。",
+          "targets": [
+            "媽",
+            "吃",
+            "菜",
+            "就"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140203-5",
+          "text": "這個桌子重，那個桌子輕。",
+          "targets": [
+            "重",
+            "桌"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140203-6",
+          "text": "上課過後，媽媽來了。",
+          "targets": [
+            "媽",
+            "來",
+            "過",
+            "後"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140203-7",
+          "text": "小路有長有短。",
+          "targets": [
+            "短"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140204",
+      "title": "第四課：鞋",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140204",
+      "terms": [
+        "鞋",
+        "回",
+        "家",
+        "把",
+        "脫",
+        "爸",
+        "靠",
+        "見",
+        "像",
+        "船",
+        "港",
+        "口",
+        "享",
+        "受",
+        "溫",
+        "暖",
+        "回家",
+        "爸爸",
+        "見聞",
+        "港口",
+        "享受",
+        "溫暖"
+      ],
+      "characters": [
+        "鞋",
+        "回",
+        "家",
+        "把",
+        "脫",
+        "爸",
+        "靠",
+        "見",
+        "像",
+        "船",
+        "港",
+        "口",
+        "享",
+        "受",
+        "溫",
+        "暖"
+      ],
+      "phrases": [
+        "回家",
+        "爸爸",
+        "見聞",
+        "港口",
+        "享受",
+        "溫暖"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140204-1",
+          "text": "回家後，我把鞋子脫下來。",
+          "targets": [
+            "鞋",
+            "回",
+            "家",
+            "把",
+            "脫"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140204-2",
+          "text": "爸爸和我靠在一起。",
+          "targets": [
+            "爸",
+            "靠"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140204-3",
+          "text": "我看見港口有船。",
+          "targets": [
+            "見",
+            "船",
+            "港",
+            "口"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140204-4",
+          "text": "這朵白雲像小船。",
+          "targets": [
+            "像",
+            "船"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140204-5",
+          "text": "我們享受家裡的溫暖。",
+          "targets": [
+            "家",
+            "享",
+            "受",
+            "溫",
+            "暖"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140205",
+      "title": "第五課：小種子快長大",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140205",
+      "terms": [
+        "種",
+        "問",
+        "怎",
+        "做",
+        "它",
+        "才",
+        "需",
+        "於",
+        "澆",
+        "陽",
+        "光",
+        "放",
+        "院",
+        "公",
+        "話",
+        "伴",
+        "種子",
+        "怎麼",
+        "需要",
+        "於是",
+        "澆水",
+        "陽光",
+        "院子",
+        "外公",
+        "說話",
+        "陪伴"
+      ],
+      "characters": [
+        "種",
+        "問",
+        "怎",
+        "做",
+        "它",
+        "才",
+        "需",
+        "於",
+        "澆",
+        "陽",
+        "光",
+        "放",
+        "院",
+        "公",
+        "話",
+        "伴"
+      ],
+      "phrases": [
+        "種子",
+        "怎麼",
+        "需要",
+        "於是",
+        "澆水",
+        "陽光",
+        "院子",
+        "外公",
+        "說話",
+        "陪伴"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140205-1",
+          "text": "我問外公：「小種子怎麼才會長大？」",
+          "targets": [
+            "種",
+            "問",
+            "怎",
+            "才",
+            "公"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140205-2",
+          "text": "它需要陽光，於是我把它放在院子裡。",
+          "targets": [
+            "它",
+            "需",
+            "於",
+            "陽",
+            "光",
+            "放",
+            "院"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140205-3",
+          "text": "我在院子裡澆水。",
+          "targets": [
+            "澆",
+            "院"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140205-4",
+          "text": "我和外公說話，陪伴他。",
+          "targets": [
+            "公",
+            "話",
+            "伴"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140205-5",
+          "text": "這要怎麼做？",
+          "targets": [
+            "怎",
+            "做"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140206",
+      "title": "第六課：奶奶的小跟班",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140206",
+      "terms": [
+        "奶",
+        "跟",
+        "班",
+        "床",
+        "弟",
+        "她",
+        "酒",
+        "拿",
+        "卡",
+        "片",
+        "給",
+        "寫",
+        "喜",
+        "歡",
+        "您",
+        "都",
+        "奶奶",
+        "跟班",
+        "起床",
+        "弟弟",
+        "家家酒",
+        "卡片",
+        "喜歡"
+      ],
+      "characters": [
+        "奶",
+        "跟",
+        "班",
+        "床",
+        "弟",
+        "她",
+        "酒",
+        "拿",
+        "卡",
+        "片",
+        "給",
+        "寫",
+        "喜",
+        "歡",
+        "您",
+        "都"
+      ],
+      "phrases": [
+        "奶奶",
+        "跟班",
+        "起床",
+        "弟弟",
+        "家家酒",
+        "卡片",
+        "喜歡"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140206-1",
+          "text": "奶奶起床了，我也跟著起床。",
+          "targets": [
+            "奶",
+            "跟",
+            "床"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140206-2",
+          "text": "弟弟和她玩家家酒。",
+          "targets": [
+            "弟",
+            "她",
+            "酒"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140206-3",
+          "text": "我拿卡片，寫好後給您。",
+          "targets": [
+            "拿",
+            "卡",
+            "片",
+            "給",
+            "寫",
+            "您"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140206-4",
+          "text": "我們都喜歡上課。",
+          "targets": [
+            "喜",
+            "歡",
+            "都"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140206-5",
+          "text": "我是奶奶的小跟班。",
+          "targets": [
+            "奶",
+            "跟",
+            "班"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140207",
+      "title": "第七課：作夢的雲",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140207",
+      "terms": [
+        "作",
+        "夢",
+        "躺",
+        "自",
+        "己",
+        "變",
+        "成",
+        "棉",
+        "糖",
+        "黑",
+        "鵝",
+        "得",
+        "更",
+        "漂",
+        "亮",
+        "作夢",
+        "自己",
+        "變成",
+        "棉花糖",
+        "天鵝",
+        "漂亮"
+      ],
+      "characters": [
+        "作",
+        "夢",
+        "躺",
+        "自",
+        "己",
+        "變",
+        "成",
+        "棉",
+        "糖",
+        "黑",
+        "鵝",
+        "得",
+        "更",
+        "漂",
+        "亮"
+      ],
+      "phrases": [
+        "作夢",
+        "自己",
+        "變成",
+        "棉花糖",
+        "天鵝",
+        "漂亮"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140207-1",
+          "text": "我躺在床上作夢。",
+          "targets": [
+            "作",
+            "夢",
+            "躺"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140207-2",
+          "text": "白雲變成了棉花糖。",
+          "targets": [
+            "變",
+            "成",
+            "棉",
+            "糖"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140207-3",
+          "text": "黑天鵝說：「我自己也長得漂亮！」",
+          "targets": [
+            "自",
+            "己",
+            "黑",
+            "鵝",
+            "得",
+            "漂",
+            "亮"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140207-4",
+          "text": "這朵花比那朵花更紅。",
+          "targets": [
+            "更"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140208",
+      "title": "第八課：妹妹的紅雨鞋",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140208",
+      "terms": [
+        "妹",
+        "雨",
+        "雙",
+        "穿",
+        "滴",
+        "遊",
+        "戲",
+        "顆",
+        "珍",
+        "珠",
+        "落",
+        "面",
+        "魚",
+        "缸",
+        "金",
+        "游",
+        "妹妹",
+        "雨鞋",
+        "一雙",
+        "遊戲",
+        "珍珠",
+        "落下",
+        "水面",
+        "魚缸",
+        "金魚"
+      ],
+      "characters": [
+        "妹",
+        "雨",
+        "雙",
+        "穿",
+        "滴",
+        "遊",
+        "戲",
+        "顆",
+        "珍",
+        "珠",
+        "落",
+        "面",
+        "魚",
+        "缸",
+        "金",
+        "游"
+      ],
+      "phrases": [
+        "妹妹",
+        "雨鞋",
+        "一雙",
+        "遊戲",
+        "珍珠",
+        "落下",
+        "水面",
+        "魚缸",
+        "金魚"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140208-1",
+          "text": "妹妹穿上一雙紅雨鞋。",
+          "targets": [
+            "妹",
+            "雨",
+            "雙",
+            "穿"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140208-2",
+          "text": "雨滴落在水面上，像一顆顆珍珠。",
+          "targets": [
+            "雨",
+            "滴",
+            "顆",
+            "珍",
+            "珠",
+            "落",
+            "面"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140208-3",
+          "text": "我和妹妹一起玩遊戲。",
+          "targets": [
+            "妹",
+            "遊",
+            "戲"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140208-4",
+          "text": "魚缸裡的金魚游來游去。",
+          "targets": [
+            "魚",
+            "缸",
+            "金",
+            "游"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140209",
+      "title": "第九課：七彩的虹",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140209",
+      "terms": [
+        "彩",
+        "虹",
+        "太",
+        "國",
+        "掃",
+        "除",
+        "洗",
+        "淨",
+        "馬",
+        "低",
+        "刷",
+        "樹",
+        "葉",
+        "很",
+        "認",
+        "送",
+        "太陽",
+        "國王",
+        "大掃除",
+        "洗淨",
+        "馬路",
+        "高高低低",
+        "葉子",
+        "認真"
+      ],
+      "characters": [
+        "彩",
+        "虹",
+        "太",
+        "國",
+        "掃",
+        "除",
+        "洗",
+        "淨",
+        "馬",
+        "低",
+        "刷",
+        "樹",
+        "葉",
+        "很",
+        "認",
+        "送"
+      ],
+      "phrases": [
+        "太陽",
+        "國王",
+        "大掃除",
+        "洗淨",
+        "馬路",
+        "高高低低",
+        "葉子",
+        "認真"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140209-1",
+          "text": "太陽出來了，天空有彩虹。",
+          "targets": [
+            "彩",
+            "虹",
+            "太"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140209-2",
+          "text": "國王認真大掃除。",
+          "targets": [
+            "國",
+            "掃",
+            "除",
+            "認"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140209-3",
+          "text": "我把鞋子洗淨，再刷一刷。",
+          "targets": [
+            "洗",
+            "淨",
+            "刷"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140209-4",
+          "text": "馬路上的樹有高有低。",
+          "targets": [
+            "馬",
+            "低",
+            "樹"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140209-5",
+          "text": "這片葉子很紅，我把它送給你。",
+          "targets": [
+            "葉",
+            "很",
+            "送"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140210",
+      "title": "第十課：和你在一起",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140210",
+      "terms": [
+        "地",
+        "化",
+        "趣",
+        "線",
+        "風",
+        "箏",
+        "升",
+        "神",
+        "奇",
+        "跑",
+        "跳",
+        "笑",
+        "每",
+        "件",
+        "事",
+        "情",
+        "草地",
+        "變化",
+        "有趣",
+        "長線",
+        "風箏",
+        "升高",
+        "神奇",
+        "跑跑跳跳",
+        "說說笑笑",
+        "事情"
+      ],
+      "characters": [
+        "地",
+        "化",
+        "趣",
+        "線",
+        "風",
+        "箏",
+        "升",
+        "神",
+        "奇",
+        "跑",
+        "跳",
+        "笑",
+        "每",
+        "件",
+        "事",
+        "情"
+      ],
+      "phrases": [
+        "草地",
+        "變化",
+        "有趣",
+        "長線",
+        "風箏",
+        "升高",
+        "神奇",
+        "跑跑跳跳",
+        "說說笑笑",
+        "事情"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140210-1",
+          "text": "我們在草地上跑跑跳跳，說說笑笑。",
+          "targets": [
+            "地",
+            "跑",
+            "跳",
+            "笑"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140210-2",
+          "text": "風箏的長線拉好了，風箏升高了。",
+          "targets": [
+            "線",
+            "風",
+            "箏",
+            "升"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140210-3",
+          "text": "白雲的變化真有趣，也很神奇。",
+          "targets": [
+            "化",
+            "趣",
+            "神",
+            "奇"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140210-4",
+          "text": "和你一起做的每件事情，都很有趣。",
+          "targets": [
+            "趣",
+            "每",
+            "件",
+            "事",
+            "情"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140211",
+      "title": "第十一課：生日快樂",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140211",
+      "terms": [
+        "生",
+        "日",
+        "今",
+        "記",
+        "時",
+        "知",
+        "道",
+        "嗎",
+        "學",
+        "收",
+        "張",
+        "祝",
+        "福",
+        "第",
+        "次",
+        "謝",
+        "生日",
+        "今天",
+        "記得",
+        "知道",
+        "放學",
+        "祝福",
+        "第一次",
+        "謝謝"
+      ],
+      "characters": [
+        "生",
+        "日",
+        "今",
+        "記",
+        "時",
+        "知",
+        "道",
+        "嗎",
+        "學",
+        "收",
+        "張",
+        "祝",
+        "福",
+        "第",
+        "次",
+        "謝"
+      ],
+      "phrases": [
+        "生日",
+        "今天",
+        "記得",
+        "知道",
+        "放學",
+        "祝福",
+        "第一次",
+        "謝謝"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140211-1",
+          "text": "今天是我的生日，你知道嗎？",
+          "targets": [
+            "生",
+            "日",
+            "今",
+            "知",
+            "道",
+            "嗎"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140211-2",
+          "text": "我記得，放學時要和你一起回家。",
+          "targets": [
+            "記",
+            "時",
+            "學"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140211-3",
+          "text": "我收到一張卡片，上面寫著祝福的話。",
+          "targets": [
+            "收",
+            "張",
+            "祝",
+            "福"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140211-4",
+          "text": "這是我第一次做卡片，謝謝你陪我。",
+          "targets": [
+            "第",
+            "次",
+            "謝"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "id": "0103011140212",
+      "title": "第十二課：小黑",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011140212",
+      "terms": [
+        "想",
+        "燈",
+        "前",
+        "點",
+        "半",
+        "清",
+        "楚",
+        "停",
+        "休",
+        "息",
+        "兒",
+        "吧",
+        "幫",
+        "加",
+        "油",
+        "慢",
+        "路燈",
+        "前面",
+        "一點",
+        "一半",
+        "清楚",
+        "休息",
+        "一會兒",
+        "加油"
+      ],
+      "characters": [
+        "想",
+        "燈",
+        "前",
+        "點",
+        "半",
+        "清",
+        "楚",
+        "停",
+        "休",
+        "息",
+        "兒",
+        "吧",
+        "幫",
+        "加",
+        "油",
+        "慢"
+      ],
+      "phrases": [
+        "路燈",
+        "前面",
+        "一點",
+        "一半",
+        "清楚",
+        "休息",
+        "一會兒",
+        "加油"
+      ],
+      "sentences": [
+        {
+          "id": "0103011140212-1",
+          "text": "我想在路燈下面看卡片。",
+          "targets": [
+            "想",
+            "燈"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140212-2",
+          "text": "前面的卡片有一半看不清楚。",
+          "targets": [
+            "前",
+            "半",
+            "清",
+            "楚"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140212-3",
+          "text": "我們停下來，休息一會兒吧！",
+          "targets": [
+            "停",
+            "休",
+            "息",
+            "兒",
+            "吧"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        },
+        {
+          "id": "0103011140212-4",
+          "text": "你慢慢走，我來幫你拿。",
+          "targets": [
+            "幫",
+            "慢"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": []
+        },
+        {
+          "id": "0103011140212-5",
+          "text": "再走一點就到家了，加油！",
+          "targets": [
+            "點",
+            "加",
+            "油"
+          ],
+          "laterCharacters": [],
+          "extraCharacters": [],
+          "phraseOnlyCharacters": [
+            "一"
+          ]
+        }
+      ]
+    }
+  ],
+  "sentencePolicy": "Each sentence only uses Han characters found in source terms for this lesson or previous lessons. 一 occurs in source phrase 一個, not as a standalone character entry."
+}

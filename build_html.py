@@ -162,7 +162,7 @@ TEMPLATE = r'''<!doctype html>
             <button id="revealBtn" type="button" class="btn soft">我已寫在紙上，顯示答案</button>
             <div id="answer" class="answer" hidden><p class="small-label">核對答案</p><p id="answerText" class="answer-text"></p><p class="small-label">句中想再練習的字（點選標記）</p><div id="targetChips" class="chip-list"></div><p class="answer-foot">橘色表示已加入加強練習。<a id="sourceLink" href="#" target="_blank" rel="noopener noreferrer">查看字表來源</a></p></div>
             <div class="actions" style="margin-top:20px"><button id="nextBtn" type="button" class="btn">下一句 →</button></div>
-            <section class="parent-help" aria-label="家長協助核對"><h3>給家長：核對孩子的作答</h3><p class="hint">先讓孩子在紙上寫完、標好題號，再拍照上傳，AI 會自動判讀；判讀結果一律由家長確認，回到這裡標記需練的字。</p><p id="helperScope" class="scope-note"></p><label class="confirm"><input id="writtenConfirm" type="checkbox">我已確認這些題號都寫完了</label><div class="actions"><label for="gradePhotoInput" class="btn primary file-label" tabindex="0" aria-disabled="true">拍照上傳，自動判讀</label><input id="gradePhotoInput" type="file" accept="image/*" capture="environment" multiple disabled></div><p id="gradePhotoMessage" class="feedback" role="status" aria-live="polite"></p><details><summary>沒開本機伺服器？用手動方式貼去 ChatGPT</summary><button id="makePromptBtn" type="button" class="btn" disabled style="margin-top:12px">產生核對文字（給 ChatGPT）</button><div id="promptBox" hidden><textarea id="promptText" readonly aria-label="給 ChatGPT 的核對文字"></textarea><button id="copyPromptBtn" type="button" class="btn soft">複製核對文字</button><p class="notice">複製後，請自行開啟 <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>，貼上文字並上傳照片。這個頁面不會傳送照片。</p><p id="copyMessage" class="feedback" role="status" aria-live="polite"></p></div></details></section>
+            <section class="parent-help" aria-label="家長協助核對"><h3>給家長：核對孩子的作答</h3><p class="hint">先讓孩子在紙上寫完、標好題號，再拍照上傳，AI 會自動判讀；判讀結果一律由家長確認，回到這裡標記需練的字。</p><p id="helperScope" class="scope-note"></p><label class="confirm"><input id="writtenConfirm" type="checkbox">我已確認這些題號都寫完了</label><div class="actions"><label for="gradePhotoInput" class="btn primary file-label" tabindex="0" aria-disabled="true">上傳照片，自動判讀（可選多張）</label><input id="gradePhotoInput" type="file" accept="image/*" multiple disabled></div><p id="gradePhotoMessage" class="feedback" role="status" aria-live="polite"></p><details><summary>沒開本機伺服器？用手動方式貼去 ChatGPT</summary><button id="makePromptBtn" type="button" class="btn" disabled style="margin-top:12px">產生核對文字（給 ChatGPT）</button><div id="promptBox" hidden><textarea id="promptText" readonly aria-label="給 ChatGPT 的核對文字"></textarea><button id="copyPromptBtn" type="button" class="btn soft">複製核對文字</button><p class="notice">複製後，請自行開啟 <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>，貼上文字並上傳照片。這個頁面不會傳送照片。</p><p id="copyMessage" class="feedback" role="status" aria-live="polite"></p></div></details></section>
           </div>
           <p id="speechMessage" class="feedback" role="status" aria-live="polite"></p>
         </section>
@@ -298,12 +298,24 @@ TEMPLATE = r'''<!doctype html>
       $('writtenConfirm').checked = false; $('makePromptBtn').disabled = true; setGradePhotoEnabled(false);
       $('promptBox').hidden = true; $('promptText').value = ''; $('copyMessage').textContent = ''; $('gradePhotoMessage').textContent = '';
     }
-    function fileToDataUrl(file) {
+    function compressPhoto(file, maxDim = 1600, quality = 0.85) {
       return new Promise((resolve,reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = () => reject(new Error('讀取照片失敗。'));
-        reader.readAsDataURL(file);
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          let { width, height } = img;
+          if (width > maxDim || height > maxDim) {
+            const scale = maxDim / Math.max(width,height);
+            width = Math.round(width*scale); height = Math.round(height*scale);
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width; canvas.height = height;
+          canvas.getContext('2d').drawImage(img,0,0,width,height);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('讀取照片失敗，可能不是有效的圖片檔。')); };
+        img.src = url;
       });
     }
     async function uploadPhotosForGrading(fileList) {
@@ -311,9 +323,10 @@ TEMPLATE = r'''<!doctype html>
       const files = [...(fileList || [])];
       if (!items.length || !files.length) return;
       setGradePhotoEnabled(false);
-      $('gradePhotoMessage').textContent = '判讀中，請稍候（可能需要一點時間）…';
+      $('gradePhotoMessage').textContent = `處理 ${files.length} 張照片中…`;
       try {
-        const photos = await Promise.all(files.map(fileToDataUrl));
+        const photos = await Promise.all(files.map(file => compressPhoto(file)));
+        $('gradePhotoMessage').textContent = '判讀中，請稍候（可能需要一點時間，張數越多越久）…';
         const response = await fetch('/api/grade', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ sentences: items.map((item,i) => ({ index:i+1, id:item.id, text:item.text })), photos }),

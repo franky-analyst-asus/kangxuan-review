@@ -126,6 +126,9 @@ TEMPLATE = r'''<!doctype html>
     .empty { border:1px dashed var(--line); border-radius:14px; padding:20px; color:var(--muted); }
     .records { padding:22px; }
     .records h2 { margin:0 0 8px; }
+    .ai-sentence { border:1px solid var(--line); border-radius:14px; padding:14px; margin:12px 0; background:#f4f7f0; }
+    .ai-sentence p { margin:0 0 9px; font-weight:750; }
+    .ai-sentence .chip.blank { color:var(--muted); border-style:dashed; }
     .stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:17px 0; }
     .stat { background:#f4f7f0; border-radius:15px; padding:14px; }
     .stat strong { display:block; font-size:1.6rem; line-height:1.2; }
@@ -162,7 +165,7 @@ TEMPLATE = r'''<!doctype html>
             <button id="revealBtn" type="button" class="btn soft">我已寫在紙上，顯示答案</button>
             <div id="answer" class="answer" hidden><p class="small-label">核對答案</p><p id="answerText" class="answer-text"></p><p class="small-label">句中想再練習的字（點選標記）</p><div id="targetChips" class="chip-list"></div><p class="answer-foot">橘色表示已加入加強練習。<a id="sourceLink" href="#" target="_blank" rel="noopener noreferrer">查看字表來源</a></p></div>
             <div class="actions" style="margin-top:20px"><button id="nextBtn" type="button" class="btn">下一句 →</button></div>
-            <section class="parent-help" aria-label="家長協助核對"><h3>給家長：請 ChatGPT 協助核對</h3><p class="hint">先讓孩子在紙上寫完，再手動把作答照片傳到 ChatGPT。判讀結果請由家長確認，回到這裡標記需練的字。</p><p id="helperScope" class="scope-note"></p><label class="confirm"><input id="writtenConfirm" type="checkbox">我已確認這些題號都寫完了</label><button id="makePromptBtn" type="button" class="btn" disabled>產生核對文字</button><div id="promptBox" hidden><textarea id="promptText" readonly aria-label="給 ChatGPT 的核對文字"></textarea><button id="copyPromptBtn" type="button" class="btn soft">複製核對文字</button><p class="notice">複製後，請自行開啟 <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>，貼上文字並上傳照片。這個頁面不會傳送照片。</p><p id="copyMessage" class="feedback" role="status" aria-live="polite"></p></div></section>
+            <section class="parent-help" aria-label="家長協助核對"><h3>給家長：核對孩子的作答</h3><p class="hint">先讓孩子在紙上寫完，再手動把作答照片傳到 ChatGPT，或用終端機執行本機的自動判讀腳本。判讀結果一律由家長確認，回到這裡標記需練的字。</p><p id="helperScope" class="scope-note"></p><label class="confirm"><input id="writtenConfirm" type="checkbox">我已確認這些題號都寫完了</label><div class="actions"><button id="makePromptBtn" type="button" class="btn" disabled>產生核對文字（給 ChatGPT）</button><button id="exportBatchBtn" type="button" class="btn" disabled>匯出批次 JSON（給自動判讀腳本）</button></div><div id="promptBox" hidden><textarea id="promptText" readonly aria-label="給 ChatGPT 的核對文字"></textarea><button id="copyPromptBtn" type="button" class="btn soft">複製核對文字</button><p class="notice">複製後，請自行開啟 <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>，貼上文字並上傳照片。這個頁面不會傳送照片。</p><p id="copyMessage" class="feedback" role="status" aria-live="polite"></p></div><p id="exportBatchMessage" class="feedback" role="status" aria-live="polite"></p></section>
           </div>
           <p id="speechMessage" class="feedback" role="status" aria-live="polite"></p>
         </section>
@@ -175,6 +178,7 @@ TEMPLATE = r'''<!doctype html>
       <p class="small-label">要加強的字</p><div id="weakList" class="chip-list"></div><p id="weakEmpty" class="hint">目前沒有標記。核對答案時，可以點選想再練的字。</p>
       <div class="record-actions"><button id="exportBtn" type="button" class="btn">匯出記錄 JSON</button><label for="importFile" class="btn file-label" tabindex="0">匯入記錄 JSON</label><input id="importFile" type="file" accept=".json,application/json"></div>
       <p class="notice">匯入會取代這個瀏覽器目前的複習記錄。這個工具不會同步到其他裝置，也不會自動判斷手寫對錯。</p><p id="recordMessage" class="feedback" role="status" aria-live="polite"></p>
+      <section class="parent-help" aria-label="AI 判讀結果核對"><h3>核對 AI 判讀結果</h3><p class="hint">用終端機執行 <code>grade_photo.py</code> 產生的判讀結果，匯入後由家長勾選確認，才會寫入加強練習；AI 判斷一律先預覽，不會自動寫入。</p><div class="record-actions"><label for="aiSuggestionFile" class="btn file-label" tabindex="0">載入判讀結果 JSON</label><input id="aiSuggestionFile" type="file" accept=".json,application/json"></div><p id="aiSuggestionMessage" class="feedback" role="status" aria-live="polite"></p><div id="aiSuggestionReview" hidden><div id="aiSuggestionSentences"></div><button id="applyAiSuggestionBtn" type="button" class="btn primary">採用勾選的字，加入加強練習</button></div></section>
       <section class="parent-help" aria-label="家長造句協助"><h3>給家長：請 ChatGPT 造新的練習句</h3><p class="hint">標記想再練的字後，可以複製造句指令。請家長先讀過新句，再貼回這裡；本頁不會自動產生或匯入句子。</p><button id="newPromptBtn" type="button" class="btn" disabled>產生錯字造句指令</button><div id="newPromptBox" hidden><textarea id="newPromptText" readonly aria-label="給 ChatGPT 的造句指令"></textarea><button id="copyNewPromptBtn" type="button" class="btn soft">複製造句指令</button><p id="newPromptMessage" class="feedback" role="status" aria-live="polite"></p></div>
       <p class="small-label" style="margin-top:20px">貼上家長審核後的新句（每行一句）</p><textarea id="newSentenceInput" placeholder="例：我和你一起拍手。" aria-label="貼上新句，每行一句"></textarea><button id="addSentencesBtn" type="button" class="btn primary">檢查並加入新句練習</button><p class="notice">只接受官方字表內的漢字與常見標點；每句最多30個漢字，且包含至少一個已標記的字。任何一行不合格，整批都不會加入。</p><p id="addSentencesMessage" class="feedback" role="status" aria-live="polite"></p><p class="small-label">已保存的新句</p><ol id="customSentenceList" class="item-list"></ol><p id="customEmpty" class="hint">目前沒有新句。</p></section>
     </section>
@@ -193,7 +197,7 @@ TEMPLATE = r'''<!doctype html>
     const storageKey = 'kangxuan-dictation-114-v1';
     const customLesson = { id:'custom', url:'https://pedia.cloud.edu.tw/', title:'家長審核新句' };
     const $ = id => document.getElementById(id);
-    const state = { mode:'list', queue:[], index:-1, revealed:false, record:loadRecord() };
+    const state = { mode:'list', queue:[], index:-1, revealed:false, record:loadRecord(), aiSuggestion:null };
 
     function freshRecord() { return { schemaVersion:1, schoolYear:data.schoolYear, weakCharacters:[], reviewed:{}, customSentences:[] }; }
     function validRecord(value, allowStaleIds = false) {
@@ -309,8 +313,17 @@ TEMPLATE = r'''<!doctype html>
       $('helperScope').textContent = items.length ? `本次核對：第 ${start}～${start+items.length-1} 句，共 ${items.length} 句。` : '';
     }
     function resetHelper() {
-      $('writtenConfirm').checked = false; $('makePromptBtn').disabled = true;
-      $('promptBox').hidden = true; $('promptText').value = ''; $('copyMessage').textContent = '';
+      $('writtenConfirm').checked = false; $('makePromptBtn').disabled = true; $('exportBatchBtn').disabled = true;
+      $('promptBox').hidden = true; $('promptText').value = ''; $('copyMessage').textContent = ''; $('exportBatchMessage').textContent = '';
+    }
+    function exportBatch() {
+      const items = helperItems(); if (!items.length) return;
+      const payload = { schemaVersion:1, generatedAt:new Date().toISOString(), sentences: items.map((item,i) => ({ index:i+1, id:item.id, text:item.text })) };
+      const blob = new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+      const url = URL.createObjectURL(blob); const link = document.createElement('a');
+      link.href = url; link.download = `聽寫批次-${new Date().toISOString().slice(0,10)}.json`;
+      document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
+      $('exportBatchMessage').textContent = `已匯出 ${items.length} 句，交給 grade_photo.py 搭配照片使用。`;
     }
     function makePrompt() {
       if (!$('writtenConfirm').checked) return;
@@ -361,6 +374,74 @@ TEMPLATE = r'''<!doctype html>
         button.textContent = char + ' ×'; button.setAttribute('aria-label', `已經會「${char}」，取消加強`);
         button.addEventListener('click', () => { toggleWeak(char); renderRecords(); }); list.append(button);
       });
+    }
+    function sentenceTextById(id) {
+      const known = byId.get(id); if (known) return known.text;
+      const custom = state.record.customSentences.find(item => item.id === id);
+      return custom ? custom.text : null;
+    }
+    function parseAiSuggestion(raw) {
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw) || raw.schemaVersion !== 1 || !Array.isArray(raw.sentences) || !raw.sentences.length) throw new Error('判讀結果格式不正確，請確認是 grade_photo.py 產生的檔案。');
+      const validStatus = new Set(['correct','needs_practice','unclear','blank']);
+      const sentences = raw.sentences.map((entry,i) => {
+        if (!entry || typeof entry !== 'object' || typeof entry.id !== 'string') throw new Error(`第 ${i+1} 句：格式不正確。`);
+        const text = sentenceTextById(entry.id);
+        if (!text) throw new Error(`第 ${i+1} 句：找不到題號「${entry.id}」，題庫可能已更新，請重新匯出批次。`);
+        const validChars = new Set(sentenceCharacters({text}));
+        if (!Array.isArray(entry.characters)) throw new Error(`第 ${i+1} 句：缺少判讀結果。`);
+        const seen = new Set(); const characters = [];
+        entry.characters.forEach(item => {
+          if (!item || typeof item.char !== 'string' || !validStatus.has(item.status)) return;
+          if (!validChars.has(item.char) || seen.has(item.char)) return;
+          seen.add(item.char); characters.push({ char:item.char, status:item.status });
+        });
+        if (!characters.length) throw new Error(`第 ${i+1} 句：判讀結果裡沒有屬於這句的字，已忽略。`);
+        return { id:entry.id, text, characters, selected:new Set(characters.filter(item => item.status !== 'correct').map(item => item.char)) };
+      });
+      return { generatedAt: typeof raw.generatedAt === 'string' ? raw.generatedAt : '', sentences };
+    }
+    function renderAiSuggestion() {
+      const container = $('aiSuggestionSentences'); container.replaceChildren();
+      state.aiSuggestion.sentences.forEach(sentence => {
+        const box = document.createElement('div'); box.className = 'ai-sentence';
+        const p = document.createElement('p'); p.textContent = sentence.text; box.append(p);
+        const chips = document.createElement('div'); chips.className = 'chip-list';
+        sentence.characters.forEach(item => {
+          const button = document.createElement('button'); button.type = 'button';
+          button.className = 'chip' + (item.status === 'blank' ? ' blank' : '');
+          button.textContent = item.status === 'blank' ? `${item.char}（空白）` : item.status === 'unclear' ? `${item.char}（需確認）` : item.char;
+          const active = sentence.selected.has(item.char);
+          button.setAttribute('aria-pressed', String(active));
+          button.setAttribute('aria-label', `${item.char}：${active ? '取消加強' : '加入加強'}`);
+          button.addEventListener('click', () => { active ? sentence.selected.delete(item.char) : sentence.selected.add(item.char); renderAiSuggestion(); });
+          chips.append(button);
+        });
+        box.append(chips); container.append(box);
+      });
+    }
+    async function loadAiSuggestion(file) {
+      if (!file) return;
+      try {
+        if (file.size > 2000000) throw new Error('檔案太大。');
+        state.aiSuggestion = parseAiSuggestion(JSON.parse(await file.text()));
+        renderAiSuggestion();
+        $('aiSuggestionReview').hidden = false;
+        $('aiSuggestionMessage').textContent = `已載入 ${state.aiSuggestion.sentences.length} 句判讀結果。橘色的字已預選為需要加強，請確認後再套用；點一下可以增減勾選。`;
+      } catch (error) {
+        state.aiSuggestion = null; $('aiSuggestionReview').hidden = true; $('aiSuggestionSentences').replaceChildren();
+        $('aiSuggestionMessage').textContent = `無法載入：${error.message}`;
+      }
+      $('aiSuggestionFile').value = '';
+    }
+    function applyAiSuggestion() {
+      if (!state.aiSuggestion) return;
+      const weak = new Set(state.record.weakCharacters); let added = 0;
+      state.aiSuggestion.sentences.forEach(sentence => sentence.selected.forEach(char => { if (!weak.has(char)) added++; weak.add(char); }));
+      state.record.weakCharacters = [...weak].sort((a,b) => a.localeCompare(b,'zh-Hant'));
+      saveRecord();
+      $('aiSuggestionMessage').textContent = `已確認並加入 ${added} 個新的加強字。`;
+      $('aiSuggestionReview').hidden = true; $('aiSuggestionSentences').replaceChildren();
+      state.aiSuggestion = null; renderRecords();
     }
     function validateSentenceText(text, weakCharacters, requireWeak = true) {
       const chars = [...text];
@@ -454,14 +535,17 @@ TEMPLATE = r'''<!doctype html>
     document.querySelectorAll('.mode').forEach(button => button.addEventListener('click', () => { state.mode = button.dataset.mode; document.querySelectorAll('.mode').forEach(item => item.setAttribute('aria-pressed', String(item === button))); resetQueue(); }));
     $('playBtn').addEventListener('click', speak); $('stopBtn').addEventListener('click', speakStop);
     $('revealBtn').addEventListener('click', reveal); $('nextBtn').addEventListener('click', () => selectSentence(state.index+1));
-    $('writtenConfirm').addEventListener('change', event => { $('makePromptBtn').disabled = !event.target.checked; if (!event.target.checked) { $('promptBox').hidden = true; $('promptText').value = ''; } });
+    $('writtenConfirm').addEventListener('change', event => { $('makePromptBtn').disabled = !event.target.checked; $('exportBatchBtn').disabled = !event.target.checked; if (!event.target.checked) { $('promptBox').hidden = true; $('promptText').value = ''; } });
     $('makePromptBtn').addEventListener('click', makePrompt); $('copyPromptBtn').addEventListener('click', copyPrompt);
+    $('exportBatchBtn').addEventListener('click', exportBatch);
+    $('aiSuggestionFile').addEventListener('change', event => loadAiSuggestion(event.target.files[0]));
+    $('applyAiSuggestionBtn').addEventListener('click', applyAiSuggestion);
     $('rate').addEventListener('input', event => { $('rateValue').textContent = `${Number(event.target.value).toFixed(1)} 倍`; });
     $('exportBtn').addEventListener('click', exportRecord);
     $('newPromptBtn').addEventListener('click', makeNewPrompt); $('copyNewPromptBtn').addEventListener('click', copyNewPrompt);
     $('addSentencesBtn').addEventListener('click', addSentences);
     $('importFile').addEventListener('change', event => importRecord(event.target.files[0]));
-    document.querySelector('.file-label').addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); $('importFile').click(); } });
+    document.querySelectorAll('.file-label').forEach(label => label.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); $(label.getAttribute('for')).click(); } }));
     data.sourceLinks.forEach(link => { const a = document.createElement('a'); a.href = link.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = link.label; $('sourceLinks').append(a); });
     resetQueue();
   })();

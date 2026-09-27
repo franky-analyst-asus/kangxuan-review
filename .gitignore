@@ -1,2 +1,5 @@
 .DS_Store
 __pycache__/
+# Practice record backup written by local_server.py — personal data, not code.
+record.json
+record.json.tmp

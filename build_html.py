@@ -192,9 +192,10 @@ TEMPLATE = r'''<!doctype html>
     const sentenceCharacters = item => [...new Set([...item.text].filter(char => allowedChars.has(char)))];
     const storageKey = 'kangxuan-dictation-114-v1';
     const $ = id => document.getElementById(id);
+    const EPOCH = new Date(0).toISOString();
     const state = { mode:'list', queue:[], index:-1, revealed:false, record:loadRecord(), aiSuggestion:null };
 
-    function freshRecord() { return { schemaVersion:1, schoolYear:data.schoolYear, weakCharacters:[], reviewed:{} }; }
+    function freshRecord() { return { schemaVersion:1, schoolYear:data.schoolYear, weakCharacters:[], reviewed:{}, savedAt:EPOCH }; }
     function validRecord(value, allowStaleIds = false) {
       if (!value || typeof value !== 'object' || Array.isArray(value) || value.schemaVersion !== 1 || value.schoolYear !== data.schoolYear) throw new Error('記錄版本或學年度不符合。');
       if (!Array.isArray(value.weakCharacters) || !value.reviewed || typeof value.reviewed !== 'object' || Array.isArray(value.reviewed)) throw new Error('記錄格式不正確。');
@@ -206,10 +207,38 @@ TEMPLATE = r'''<!doctype html>
         if (!byId.has(id) || !info || typeof info !== 'object' || !Number.isSafeInteger(info.count) || info.count < 1 || info.count > 1000000 || typeof info.lastViewed !== 'string' || !Number.isFinite(Date.parse(info.lastViewed))) throw new Error('句子記錄格式不正確。');
         reviewed[id] = { count:info.count, lastViewed:info.lastViewed };
       }
-      return { schemaVersion:1, schoolYear:data.schoolYear, weakCharacters, reviewed };
+      const savedAt = typeof value.savedAt === 'string' && Number.isFinite(Date.parse(value.savedAt)) ? value.savedAt : EPOCH;
+      return { schemaVersion:1, schoolYear:data.schoolYear, weakCharacters, reviewed, savedAt };
     }
     function loadRecord() { try { const raw = localStorage.getItem(storageKey); return raw ? validRecord(JSON.parse(raw), true) : freshRecord(); } catch { return freshRecord(); } }
-    function saveRecord() { try { localStorage.setItem(storageKey, JSON.stringify(state.record)); return true; } catch { $('recordMessage').textContent = '瀏覽器無法儲存記錄，請檢查儲存空間設定。'; return false; } }
+    function pushRecordToServer() {
+      fetch('/api/record', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(state.record) }).catch(() => {});
+    }
+    function saveRecord() {
+      state.record.savedAt = new Date().toISOString();
+      try { localStorage.setItem(storageKey, JSON.stringify(state.record)); } catch { $('recordMessage').textContent = '瀏覽器無法儲存記錄，請檢查儲存空間設定。'; return false; }
+      pushRecordToServer();
+      return true;
+    }
+    async function syncRecordFromServer() {
+      try {
+        const response = await fetch('/api/record');
+        if (!response.ok) return;
+        const raw = await response.json();
+        if (!raw || typeof raw !== 'object' || !Object.keys(raw).length) { pushRecordToServer(); return; }
+        const serverRecord = validRecord(raw, true);
+        const serverTime = Date.parse(serverRecord.savedAt) || 0;
+        const localTime = Date.parse(state.record.savedAt) || 0;
+        if (serverTime > localTime) {
+          state.record = serverRecord;
+          try { localStorage.setItem(storageKey, JSON.stringify(state.record)); } catch {}
+          renderRecords();
+          if (state.mode === 'review') resetQueue(); else { renderList(); renderStage(); }
+        } else if (localTime > serverTime) {
+          pushRecordToServer();
+        }
+      } catch { /* server not reachable (e.g. GitHub Pages, or local_server.py not running) — local-only is fine */ }
+    }
     function speakStop() { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); }
     function speak() {
       const item = state.queue[state.index]; if (!item) return;
@@ -523,6 +552,7 @@ TEMPLATE = r'''<!doctype html>
     document.querySelectorAll('.file-label').forEach(label => label.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); $(label.getAttribute('for')).click(); } }));
     data.sourceLinks.forEach(link => { const a = document.createElement('a'); a.href = link.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = link.label; $('sourceLinks').append(a); });
     resetQueue();
+    syncRecordFromServer();
   })();
   </script>
 </body>

@@ -2,8 +2,15 @@
 """Local helper server so the practice page can upload a photo and get an AI reading
 back directly — no manual JSON export/import, no terminal command per session.
 
-Serves index.html itself, plus one endpoint the page calls with `fetch`:
-  POST /api/grade   {sentences, photos}   -> {sentences: [...]}
+Serves index.html itself, plus the endpoints the page calls with `fetch`:
+  POST /api/grade    {sentences, photos}   -> {sentences: [...]}
+  GET  /api/record                          -> the saved practice record, or {}
+  POST /api/record   <the record object>    -> saved to record.json on this Mac
+
+record.json is a durable copy of the practice record (weak characters, reviewed
+sentences) that lives on this computer instead of only in the phone's browser
+storage, which can get cleared by the OS/browser without warning. The page syncs
+with it automatically (newest `savedAt` wins) whenever it can reach this server.
 
 Calls the OpenAI Codex CLI (`codex exec`), authenticated with the existing ChatGPT/Codex
 subscription login (`codex login`) — no separate metered API key.
@@ -20,8 +27,10 @@ from __future__ import annotations
 
 import base64
 import json
+import os
 import socket
 import tempfile
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -29,6 +38,8 @@ import grade_photo
 
 ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
+RECORD_FILE = ROOT / "record.json"
+RECORD_LOCK = threading.Lock()
 PORT = 8787
 
 
@@ -71,6 +82,12 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(body)
         elif self.path == "/api/health":
             self._send_json(200, {"ok": True})
+        elif self.path == "/api/record":
+            with RECORD_LOCK:
+                if RECORD_FILE.exists():
+                    self._send_json(200, json.loads(RECORD_FILE.read_text(encoding="utf-8")))
+                else:
+                    self._send_json(200, {})
         else:
             self.send_response(404)
             self.end_headers()
@@ -79,6 +96,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if self.path == "/api/grade":
                 self._handle_grade()
+            elif self.path == "/api/record":
+                self._handle_save_record()
             else:
                 self.send_response(404)
                 self.end_headers()
@@ -109,6 +128,16 @@ class Handler(BaseHTTPRequestHandler):
             result_sentences = grade_photo.grade(sentences, photo_paths)
 
         self._send_json(200, {"schemaVersion": 1, "sentences": result_sentences})
+
+    def _handle_save_record(self) -> None:
+        payload = self._read_json()
+        if not isinstance(payload, dict):
+            raise ValueError("記錄格式不正確。")
+        with RECORD_LOCK:
+            tmp_path = RECORD_FILE.with_suffix(".json.tmp")
+            tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            os.replace(tmp_path, RECORD_FILE)
+        self._send_json(200, {"ok": True})
 
 
 def main() -> None:
